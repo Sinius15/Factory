@@ -18,7 +18,7 @@ public class InventorySlot {
     }
 
     public void draw(Graphics2D g, int x, int y, int pixelSize){
-        g.drawImage(this.getItem().getImage(), x, y, pixelSize, pixelSize, null);
+        g.drawImage(this.getItem().getImage().getResizedImage(new Dimension(pixelSize, pixelSize)), x, y, null);
         g.setColor(Color.white);
         String line = this.getAmount() + "";
         int actual_width = g.getFontMetrics().stringWidth(line);

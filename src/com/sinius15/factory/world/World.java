@@ -54,10 +54,10 @@ public class World {
                 Tile tile = getTile(x, y);
                 if(tile == null)
                     continue;
-                g.drawImage(tile.getImage(),
+                g.drawImage(tile.getImage().getResizedImage(new Dimension(pixelPerTile, pixelPerTile)),
                         x * pixelPerTile - info.xScroll,
-                        y * pixelPerTile - info.yScroll,
-                        pixelPerTile, pixelPerTile, null);
+                        y * pixelPerTile - info.yScroll
+                        , null);
 //                g.drawString(x + ";" + y,
 //                        x * pixelPerTile - info.xScroll,
 //                        y * pixelPerTile - info.yScroll+10);

@@ -1,6 +1,7 @@
 package com.sinius15.factory.item;
 
 import com.sinius15.factory.FactoryGame;
+import com.sinius15.factory.util.ResizedImage;
 import com.sinius15.factory.world.World;
 
 import javax.imageio.ImageIO;
@@ -16,7 +17,7 @@ public abstract class Item {
     private final int id;
 
     protected String name;
-    protected BufferedImage image;
+    protected ResizedImage image;
     protected int maxStackSize;
 
     public Item(int id, String name, String imageName, int maxStackSize) {
@@ -24,14 +25,14 @@ public abstract class Item {
         this.id = id;
         this.maxStackSize = maxStackSize;
         try {
-            this.image = ImageIO.read(FactoryGame.class.getResourceAsStream(imageName));
+            this.image = new ResizedImage(ImageIO.read(FactoryGame.class.getResourceAsStream(imageName)));
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(-1);
         }
     }
 
-    public BufferedImage getImage(){
+    public ResizedImage getImage(){
         return image;
     }
 

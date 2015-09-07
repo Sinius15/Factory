@@ -2,6 +2,7 @@ package com.sinius15.factory.tile;
 
 import com.sinius15.factory.FactoryGame;
 import com.sinius15.factory.item.Item;
+import com.sinius15.factory.util.ResizedImage;
 import com.sinius15.factory.world.WorldGeneratorTileSetting;
 
 import javax.imageio.ImageIO;
@@ -17,7 +18,7 @@ public class Tile {
 
     private String name;
     private TileType type;
-    private BufferedImage image;
+    private ResizedImage image;
     private WorldGeneratorTileSetting generatorSettings;
     private Item droppedItem;
 
@@ -28,14 +29,14 @@ public class Tile {
         this.generatorSettings = generatorSettings;
         this.droppedItem = droppedItem;
         try {
-            this.image = ImageIO.read(FactoryGame.class.getResourceAsStream("tiles/"+imageName + ".png"));
+            this.image = new ResizedImage(ImageIO.read(FactoryGame.class.getResourceAsStream("tiles/" + imageName + ".png")));
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(-1);
         }
     }
 
-    public BufferedImage getImage(){
+    public ResizedImage getImage(){
         return image;
     }
 

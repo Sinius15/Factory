@@ -35,7 +35,7 @@ public class Crafter {
             Item result = ItemProvider.getItem(recipe.getResultItemId());
             if (result == null)
                 continue;
-            g.drawImage(result.getImage(), cc.x, cc.y, pixelSize, pixelSize, null);
+            g.drawImage(result.getImage().getResizedImage(new Dimension(pixelSize, pixelSize)), cc.x, cc.y, null);
             if (!recipe.canCraft(inventory)) {
                 g.setColor(Inventory.unavailableColor);
                 g.fillRect(cc.x, cc.y, pixelSize, pixelSize);
