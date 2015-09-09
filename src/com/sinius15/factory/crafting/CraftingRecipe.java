@@ -2,6 +2,7 @@ package com.sinius15.factory.crafting;
 
 import com.sinius15.factory.item.Inventory;
 import com.sinius15.factory.item.InventorySlot;
+import com.sinius15.factory.item.ItemProvider;
 
 /**
  * Created by Sinius on 1-9-2015.
@@ -30,9 +31,21 @@ public class CraftingRecipe {
         return true;
     }
 
+    public boolean canBeStackedToSlot(InventorySlot slot){
+        if(slot.isEmpty())
+            return true;
+        if(slot.getItemId() == getResultItemId() && slot.spacesFree() >= getResultAmount())
+            return true;
+        return false;
+    }
+
     public boolean tryToCraft(Inventory inventory){
-        if(!canCraft(inventory) || !inventory.getSelectedSlot().isEmpty())
+        //not enough resources
+        if(!canCraft(inventory))
             return false;
+        if(!canBeStackedToSlot(inventory.getSelectedSlot()))
+            return false;
+
         pieces:
         for(CraftingRecipeSpot piece : recipe){
             for(InventorySlot slot : inventory.getSlots()){

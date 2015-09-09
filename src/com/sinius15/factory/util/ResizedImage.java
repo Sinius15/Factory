@@ -5,7 +5,7 @@ import java.awt.image.*;
 import java.util.HashMap;
 
 /**
- * Created by sijmen on 7-9-2015.
+ * Created by Sinius on 7-9-2015.
  */
 public class ResizedImage extends BufferedImage{
 
@@ -22,7 +22,6 @@ public class ResizedImage extends BufferedImage{
         BufferedImage newImg = new BufferedImage(size.width, size.height, this.getType());
         newImg.createGraphics().drawImage(this, 0, 0, size.width, size.height, null);
         resizes.put(size, newImg);
-        System.out.println("resizeing" + resizes.size());
         return newImg;
     }
 }

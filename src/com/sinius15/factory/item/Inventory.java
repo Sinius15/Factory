@@ -28,6 +28,8 @@ public class Inventory {
         }
         slots[0].setItemId(ItemProvider.pickaxeItem.getId());
         slots[0].addAmount(1);
+        slots[1].setItemId(ItemProvider.pickaxeItem.getId());
+        slots[1].addAmount(1);
     }
 
     public void pickup(Item droppedItem, int amount) {
@@ -90,12 +92,17 @@ public class Inventory {
                 int clickedSlotNr = getInventorySlotAtPixel(mouse);
                 InventorySlot clickedSlot = slots[clickedSlotNr];
 
-                if(slots[clickedSlotNr].getItemId() == selected.getItemId()){
-                    //todo
+                if(!clickedSlot.isEmpty() && !selected.isEmpty() &&
+                        clickedSlot.getItemId() == selected.getItemId()) {
+                    while (clickedSlot.getAmount() < clickedSlot.getItem().getMaxStackSize()
+                            && selected.getAmount() > 0) {
+                        clickedSlot.addAmount(1);
+                        selected.subtractAmount(1);
+                    }
+                }else{
+                    slots[clickedSlotNr] = selected;
+                    selected = clickedSlot;
                 }
-
-                slots[clickedSlotNr] = selected;
-                selected = clickedSlot;
             }
         }
     }

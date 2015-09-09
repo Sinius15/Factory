@@ -14,7 +14,7 @@ import java.awt.*;
  */
 public class Crafter {
 
-    private final int maxColumns = 10;
+    private static final int maxColumns = 10;
 
     // x,y = pixels left top. width height is cols and rows in blocks.
     private Rectangle drawingPlace = new Rectangle();

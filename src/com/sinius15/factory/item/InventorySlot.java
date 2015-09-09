@@ -25,6 +25,10 @@ public class InventorySlot {
         g.drawString(line, x+pixelSize-actual_width, y+pixelSize);
     }
 
+    public int spacesFree(){
+        return getItem().getMaxStackSize() - getAmount();
+    }
+
     public int getItemId() {
         return itemId;
     }

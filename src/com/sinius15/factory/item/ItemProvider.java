@@ -17,7 +17,7 @@ public class ItemProvider {
     public static final Item silverItem = new BasicItem(6, "Silver", "ores/silver.png");
     public static final Item woodItem = new BasicItem(7, "Wood", "ores/wood.png");
 
-    public static final Item pickaxeItem = new MinerItem(8, "Pickaxe", "tools/pick_diamond.png", 1);
+    public static final Item pickaxeItem = new MinerItem(8, "Pickaxe", "tools/pick_diamond.png", 10);
 
     private static final Item[] items = new Item[]{
             stoneItem,
