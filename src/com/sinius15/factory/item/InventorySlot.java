@@ -26,6 +26,8 @@ public class InventorySlot {
     }
 
     public int spacesFree(){
+        if(getItem() == null)
+            return 0;
         return getItem().getMaxStackSize() - getAmount();
     }
 
