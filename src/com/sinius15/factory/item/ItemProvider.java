@@ -12,7 +12,7 @@ public class ItemProvider {
     public static final Item coalItem = new BasicItem(1, "Coal", "ores/coal.png");
     public static final Item diamondItem = new BasicItem(2, "Diamond", "ores/diamond.png");
     public static final Item goldItem = new BasicItem(3, "Gold", "ores/gold.png");
-    public static final Item ironItem = new BasicItem(4, "Iron", "ores/Iron.png");
+    public static final Item ironItem = new BasicItem(4, "Iron", "ores/iron.png");
     public static final Item powerStoneItem = new BasicItem(5, "PowerStone", "ores/powerstone.png");
     public static final Item silverItem = new BasicItem(6, "Silver", "ores/silver.png");
     public static final Item woodItem = new BasicItem(7, "Wood", "ores/wood.png");
